@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search-er</title>
+  <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+  <header>
+    <div id="base-container" class="container">
+      <div id="app-Title">
+        <h1 id="phone-Title" style="color: #4285f4; font-weight: 400;">Search-er</h1>
+      </div>
+      <form id="search-form">
+        <i class="fas fa-search"></i>
+        <input type="text" class="searchBar" placeholder="Enter product name..." id="search" autocomplete="off"
+          value="" />
+      </form>
+      <div id="match-list"></div>
+  </header>
+  <div class="trendingContainer">
+    <div>
+      Recently trending
+    </div>
+    <div id="trending-list" class="trendingCards"></div>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="/static/phone.js"></script>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      font-family: roboto;
+    }
+
+    .trendingContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 600px;
+      margin: 50px auto;
+      font-family: roboto;
+      color: #4285f4;
+      font-size: 18px;
+    }
+
+    .trendingCards {
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .trendingCards>.card {
+      width: 15%;
+      padding: 7px 10px;
+      border-color: rgba(223, 225, 229, 0);
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+      border-radius: 24px;
+      color: black;
+      text-align: center;
+      font-size: 14px;
+      margin: 15px;
+      cursor: pointer;
+    }
+
+    .trendingCards>.card:hover {
+      background: #eee;
+    }
+
+    #search-form,
+    #search-form:active,
+    #search-form:focus {
+      border: 1px solid #eee;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-color: rgba(223, 225, 229, 0);
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+      border-bottom: none;
+    }
+
+    .searchBar {
+      height: 34px;
+      font-size: medium;
+      padding: 6px 13px;
+      width: 453px;
+      font-family: roboto;
+      border: none;
+      outline: none;
+    }
+
+    #match-list {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      border-color: rgba(223, 225, 229, 0);
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+      max-width: 526px;
+      border-top: none;
+    }
+
+    #match-list.show {
+      display: flex;
+    }
+
+    .searchContainer,
+    .searchContainerTrending,
+    .searchContainerHistory {
+      font-size: medium;
+      width: 527px;
+      font-family: roboto;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .searchContainer:hover,
+    .searchContainerTrending:hover,
+    .searchContainerHistory:hover {
+      background: #eee;
+    }
+
+    #match-list>.selected {
+      background: #eee;
+    }
+
+    .searchContainerHistory>.far,
+    .searchContainer>.far {
+      padding-left: 20px;
+    }
+
+    .far,
+    .fas {
+      padding-right: 5px;
+      padding-left: 21px;
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+
+    .fullremoveHistoryButton {
+      display: flex;
+      flex-direction: row;
+      color: grey;
+      font-size: 12px;
+      justify-content: center;
+      align-items: flex-end;
+      top: 1px;
+      margin: 13px;
+      margin-right: 31px;
+    }
+
+    .fullremoveHistoryButton:hover {
+      text-decoration: underline;
+      color: #4285f4;
+    }
+
+    .shortremoveHistoryButton {
+      display: none;
+      flex-direction: row;
+      color: grey;
+      font-size: 12px;
+      justify-content: center;
+      align-items: flex-end;
+      top: 1px;
+      margin: 13px;
+      margin-right: 31px;
+    }
+
+    .spanContent {
+      padding-left: 15px !important;
+      padding-top: 11px;
+      padding-bottom: 11px;
+      height: auto;
+    }
+
+    @media screen and (max-width: 400px) {
+
+      .searchContainer,
+      .searchContainerTrending,
+      .searchContainerHistory {
+        width: 297px;
+      }
+
+      .shortremoveHistoryButton {
+        display: flex;
+      }
+
+      .fullremoveHistoryButton {
+        display: none;
+      }
+
+      .searchBar {
+        width: 224px;
+      }
+    }
+  </style>
+</body>
+
+</html>

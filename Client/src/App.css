@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.acontainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 150px auto 0;
+}
+.searchbarDiv {
+  max-width: 800px;
+}
+.searchBar {
+  width: 475px;
+  cursor: text;
+  padding: 10px;
+  border: 1.5px solid grey;
+  /* border-radius: 5px; */
+  height: 40px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.searchBar:hover,
+.searchBar:focus {
+  border: 1.5px solid #6cbbf7;
+  background-color: white;
+}
+.ulList {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+  border: 1px solid grey;
+}
+.liList {
+  padding: 5px;
+  cursor: pointer;
+}
+.liList:hover {
+  background-color: #e6e6e6;
+}

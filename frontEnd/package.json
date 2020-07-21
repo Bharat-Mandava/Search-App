@@ -1,0 +1,23 @@
+{
+  "name": "frontEnd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./node_modules/parcel/bin/cli index.html",
+    "build": "node ./node_modules/parcel/bin/cli build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/polyfill": "^7.10.4",
+    "axios": "^0.19.2",
+    "parcel": "^1.12.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "regenerator-runtime": "^0.13.5"
+  }
+}

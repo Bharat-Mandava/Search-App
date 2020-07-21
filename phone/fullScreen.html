@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sideEffects</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="base-container" class="container">
+            <form id="search-form">
+                <a href="/"><i class='fas fa-arrow-left' style="color: #3b78e6; text-decoration: none;"></i></a>
+                <input type="text" class="searchBar" placeholder="Enter product name..." id="search" autocomplete="off"
+                    value="" />
+                <i class="fas fa-search"></i>
+            </form>
+            <div id="match-list"></div>
+    </header>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/static/phonefullScreen.js"></script>
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: roboto;
+        }
+
+        .trendingContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            margin: 50px auto;
+            font-family: roboto;
+            color: #4285f4;
+            font-size: 18px;
+        }
+
+        .trendingCards {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .trendingCards>.card {
+            width: 15%;
+            padding: 7px 10px;
+            border-color: rgba(223, 225, 229, 0);
+            box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+            border-radius: 24px;
+            color: black;
+            text-align: center;
+            font-size: 14px;
+            margin: 15px;
+            cursor: pointer;
+        }
+
+        .trendingCards>.card:hover {
+            background: #eee;
+        }
+
+        #search-form,
+        #search-form:active,
+        #search-form:focus {
+            /* border: 1px solid #eee;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: rgba(223, 225, 229, 0);
+            box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28); */
+            border-bottom: none;
+        }
+
+        .searchBar {
+            height: 34px;
+            font-size: medium;
+            padding: 6px 13px;
+            width: 453px;
+            font-family: roboto;
+            border: none;
+            outline: none;
+        }
+
+        #match-list {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            border-color: rgba(223, 225, 229, 0);
+            box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+            width: 100vw;
+            border-top: 2px solid #e5e5e5;
+            margin: 5px;
+        }
+
+        #match-list.show {
+            display: flex;
+        }
+
+        .searchContainer,
+        .searchContainerTrending,
+        .searchContainerHistory {
+            font-size: medium;
+            width: 527px;
+            font-family: roboto;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .searchContainer:hover,
+        .searchContainerTrending:hover,
+        .searchContainerHistory:hover {
+            background: #eee;
+        }
+
+        #match-list>.selected {
+            background: #eee;
+        }
+
+        .searchContainerHistory>.far,
+        .searchContainer>.far {
+            padding-left: 20px;
+        }
+
+        .far,
+        .fas {
+            padding-top: 11px;
+            padding-bottom: 11px;
+        }
+
+        .fullremoveHistoryButton {
+            display: flex;
+            flex-direction: row;
+            color: grey;
+            font-size: 12px;
+            justify-content: center;
+            align-items: flex-end;
+            top: 1px;
+            margin: 13px;
+            margin-right: 31px;
+        }
+
+        .fullremoveHistoryButton:hover {
+            text-decoration: underline;
+            color: #4285f4;
+        }
+
+        .shortremoveHistoryButton {
+            display: none;
+            flex-direction: row;
+            color: grey;
+            font-size: 12px;
+            justify-content: center;
+            align-items: flex-end;
+            top: 1px;
+            margin: 13px;
+            margin-right: 31px;
+        }
+
+        .spanContent {
+            padding-left: 15px !important;
+            padding-top: 11px;
+            padding-bottom: 11px;
+            height: auto;
+        }
+
+        @media screen and (max-width: 400px) {
+
+            .searchContainer,
+            .searchContainerTrending,
+            .searchContainerHistory {
+                width: 100vw;
+            }
+
+            .shortremoveHistoryButton {
+                display: flex;
+            }
+
+            .fullremoveHistoryButton {
+                display: none;
+            }
+
+            .searchBar {
+                width: 70vw;
+            }
+        }
+    </style>
+</body>
+
+</html>
