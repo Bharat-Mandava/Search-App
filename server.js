@@ -109,6 +109,8 @@ app.post("/removehistory", (req, res) => {
 app.get('/', (req, res) => {
     //fetching the ip address through express req object
     const ipAddress = req.ip;
+    let userLanguage = req.acceptsLanguages(); //get languages preferences from req header
+
     let deviceType = req.device.type;
     let x = req.headers['user-agent']
     if (x.indexOf("Mobile") !== -1) {

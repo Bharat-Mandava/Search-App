@@ -1,6 +1,7 @@
 //import 'regenerator-runtime/runtime';
 //import axios from 'axios';
 //import * as flags from "./asset.js"
+import * as i118n from "./intl.js"
 const search = document.getElementById('search')
 const matchList = document.getElementById('match-list')
 const trendingList = document.getElementById('trending-list')
@@ -8,7 +9,6 @@ const signout = document.getElementById('signoutButton')
 var selectedSuggestionIndex = -1;
 let overlayme = document.getElementById("dialog-container");
 let popupQuestion = document.getElementById("popupQuestion");
-
 
 let initialHistory = async () => {
     let ih = await callHistory();
@@ -315,9 +315,6 @@ search.addEventListener('input', () => getcountries(search.value));
 search.addEventListener('click', () => getCountriuesWithBlank());
 //Load Trending on window load
 window.addEventListener('load', () => getTrending())
-//window.addEventListener('load', () => signinaction())
 
-// window.addEventListener('load', () => myTimer())
-// let myTimer = () => window.setInterval(function () {
-//     onSignIn()
-// }, 2000);
+//i18n initiation
+
