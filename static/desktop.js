@@ -218,7 +218,7 @@ const confirmation = (removingValue, keyPressLocation) => {
         matchList.style.display = "flex";
         if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
             let userData = onSignIn();
-            removeSearches(value, userData)
+            removeSearches(removingValue, userData)
         }
     }
     document.getElementById("cancel").onclick = function cancel() {

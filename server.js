@@ -109,16 +109,18 @@ app.post("/removehistory", (req, res) => {
 app.get('/', (req, res) => {
     //fetching the ip address through express req object
     const ipAddress = req.ip;
-    let userLanguage = req.acceptsLanguages(); //get languages preferences from req header
+    let userLanguage = req.acceptsLanguages();
+    //get languages preferences from req header
+    if (userLanguage[0] == "en-US") {
+        let x = req.headers['user-agent']
+        if (x.indexOf("Mobile") !== -1) {
+            res.sendFile(path.join(__dirname, '/phone/index.html'));
+        }
+        if (x.indexOf("Mobile") == -1) {
+            res.sendFile(path.join(__dirname, '/desktop/index.html'));
+        }
+    }
 
-    let deviceType = req.device.type;
-    let x = req.headers['user-agent']
-    if (x.indexOf("Mobile") !== -1) {
-        res.sendFile(path.join(__dirname, '/phone/index.html'));
-    }
-    if (x.indexOf("Mobile") == -1) {
-        res.sendFile(path.join(__dirname, '/desktop/index.html'));
-    }
 });
 
 //user req for trending values on page load
